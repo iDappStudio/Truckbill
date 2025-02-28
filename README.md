@@ -39,4 +39,23 @@ Umożliwia łatwe śledzenie i zarządzanie listami przewozowymi, a także gener
 📌 **iDappStudio**  
 
 ## 📂 Repozytorium  
-🔗 GitHub - **Truckbill** 
+🔗 GitHub - **Truckbill**  
+
+---
+
+# 🛠 Instalacja i wymagania  
+
+## 1. **Wymagania**  
+Aby uruchomić projekt, upewnij się, że masz zainstalowane poniższe narzędzia:
+
+- 📦 **Flutter 3.29.0** (zalecane zarządzanie wersją przez **fvm**)  
+- 🌐 **Dart**  
+- 🛠 **Melos** (do obsługi monorepo)  
+
+## 2. **Instalacja**  
+
+### 🔧 **Ustawienie wersji Fluttera**  
+Zaleca się zarządzanie wersjami Fluttera za pomocą **fvm** (Flutter Version Manager). Aby ustawić odpowiednią wersję Fluttera, uruchom:  
+
+```bash
+fvm use
