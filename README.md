@@ -1,16 +1,42 @@
-# truckbill
+# 🚛 Truckbill  
 
-A new Flutter project.
+## 📌 Opis aplikacji  
+**Truckbill** to nowoczesna aplikacja mobilna stworzona we **Flutterze**, wykorzystująca **Supabase** jako backend.  
+Umożliwia łatwe śledzenie i zarządzanie listami przewozowymi, a także generowanie raportów.  
 
-## Getting Started
+## ✨ Kluczowe funkcjonalności  
 
-This project is a starting point for a Flutter application.
+### 📝 Dodawanie listu przewozowego  
+- 📌 **Numer listu przewozowego**  
+- 📍 **Miejsce załadunku**  
+- 📅 **Data załadunku**  
+- 🏁 **Miejsce rozładunku**  
+- 📆 **Data rozładunku**  
+- 💰 **Kwota**  
+- 📷 **Skanowanie stron dokumentu i ich dołączanie**  
 
-A few resources to get you started if this is your first Flutter project:
+### 🔍 Przeglądanie i edycja listów przewozowych  
+- 📄 **Lista wszystkich dodanych listów przewozowych**  
+- ✏ **Możliwość edycji i aktualizacji danych**  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 📊 Generowanie raportów  
+- 📂 **Eksport listów przewozowych do pliku Excel (XLSX)**  
+- 📅 **Eksport danych dla wybranego miesiąca**  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠 Technologie  
+- **Frontend:** Flutter  
+- **Backend:** Supabase (autoryzacja, baza danych, przechowywanie plików)  
+- **Format eksportu:** Pliki Excel (XLSX)  
+
+## 🔄 Proces działania  
+1️⃣ 🚀 Użytkownik uruchamia aplikację i loguje się.  
+2️⃣ 📝 Wypełnia formularz i skanuje dokumenty, aby dodać nowy list przewozowy.  
+3️⃣ 📡 Lista przewozowa zostaje zapisana w bazie danych Supabase.  
+4️⃣ 🔍 Użytkownik może przeglądać i edytować swoje listy przewozowe.  
+5️⃣ 📊 Może wygenerować raport w Excelu dla wszystkich danych lub wybranego miesiąca.  
+
+## 💡 Autor  
+📌 **iDappStudio**  
+
+## 📂 Repozytorium  
+🔗 GitHub - **Truckbill** 
