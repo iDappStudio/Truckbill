@@ -1,11 +1,28 @@
 name: truckbill
 environment:
   sdk: ">=3.7.0 <4.0.0"
+  
 dev_dependencies:
   melos: ^6.3.2
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+ feature/tb-13-konfiguracja-pliku-analysis_optionsyaml
 dependencies:
   flutter:
     sdk: flutter
+=======
+  go_router_builder: ^2.8.1
+  injectable_generator: ^2.7.0
+  build_runner: ^2.4.15
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  flutter_hooks: ^0.21.2
+  freezed: ^3.0.2
+  injectable: ^2.5.0
+  get_it: ^8.0.3
+  go_router: ^14.8.1
+ main
