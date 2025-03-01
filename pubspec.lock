@@ -448,8 +448,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
- feature/tb-13-konfiguracja-pliku-analysis_optionsyaml
-=======
   logging:
     dependency: transitive
     description:
@@ -458,7 +456,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.0"
- main
   matcher:
     dependency: transitive
     description:
