@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:truckbill/presentation/router/app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const Scaffold(),
+      routerConfig: AppRouter.router,
     );
   }
 }
