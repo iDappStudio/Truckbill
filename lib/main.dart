@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:truckbill/core/di/di.dart';
 import 'package:truckbill/presentation/router/app_router.dart';
 
-void main() {
+void main() async {
+  await setupDependencies();
   runApp(const MyApp());
 }
 
