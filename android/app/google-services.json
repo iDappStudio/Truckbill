@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "587844848124",
+    "project_id": "truckbill-671de",
+    "storage_bucket": "truckbill-671de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587844848124:android:ce1a5c9c350d2beddd4a79",
+        "android_client_info": {
+          "package_name": "com.idappstudio.truckbill"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkM9EGJpgoXZfWxqWrla1G17L0OLz4DZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
