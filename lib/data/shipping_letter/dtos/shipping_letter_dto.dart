@@ -12,7 +12,7 @@ abstract class ShippingLetterDto with _$ShippingLetterDto {
     required String unloadingPlace,             
     required DateTime unloadingDate,            
     required double price,                  
-    required List<String> documentScnas,
+    required List<String> documentScans,
   }) = _ShippingLetterDto;
 
   factory ShippingLetterDto.fromJson(Map<String, dynamic> json) => _$ShippingLetterDtoFromJson(json);
