@@ -13,8 +13,6 @@ Future<void> main() async {
   runApp(
     HookedBlocConfigProvider(
       injector: () => getIt.get,
-      builderCondition: (state) => state != null,
-      listenerCondition: (state) => state != null,
       child: const MyApp(),
     ),
   );
