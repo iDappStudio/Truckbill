@@ -4,7 +4,7 @@ import 'package:truckbill/data/auth/datasource/apple_data_source.dart';
 import 'package:truckbill/data/auth/datasource/google_data_source.dart';
 import 'package:truckbill/domain/auth/repository/auth_repository.dart';
 
-@singleton
+@Singleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._googleAuthDataSource, this._appleAuthDataSource);
 
