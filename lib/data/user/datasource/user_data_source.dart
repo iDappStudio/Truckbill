@@ -2,38 +2,32 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class UserDataSource {
-  Future<User?> getUser();
-  Future<void> updateUser(Map<String, dynamic> data);
-  Future<bool> checkIfUserExist(String uid);
-}
-
 @singleton
-class UserDataSourceImpl extends UserDataSource {
-  UserDataSourceImpl({required this.auth, required this.firestore});
+class UserDataSource {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  final FirebaseAuth auth;
-  final FirebaseFirestore firestore;
-
-  @override
-  Future<User?> getUser() async {
-    return auth.currentUser;
+  Future<User> getCurrentUser() async {
+    final user = _auth.currentUser;
+    if (user == null) {
+      throw Exception("No logged-in user.");
+    }
+    return user;
   }
 
-  @override
-  Future<void> updateUser(Map<String, dynamic> data) async {
-    final user = auth.currentUser;
+  Future<void> updateUser({String? displayName, String? photoURL}) async {
+    final user = await getCurrentUser();
 
-    if (user != null) {
-      await firestore.collection('users').doc(user.uid).update(data);
-    } else {
-      throw Exception("No logged-in user.");
+    try {
+      await user.updateProfile(displayName: displayName, photoURL: photoURL);
+      await user.reload();
+    } catch (e) {
+      throw Exception("Failed to update user data");
     }
   }
 
-  @override
   Future<bool> checkIfUserExist(String uid) async {
-    final doc = await firestore.collection('users').doc(uid).get();
+    final doc = await _firestore.collection('users').doc(uid).get();
     return doc.exists;
   }
 }

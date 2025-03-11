@@ -5,22 +5,22 @@ import 'package:truckbill/domain/user/repository/user.dart';
 
 @Singleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
-  UserRepositoryImpl({required this.userDataSource});
+  UserRepositoryImpl(this._userDataSource);
 
-  final UserDataSource userDataSource;
+  final UserDataSource _userDataSource;
 
   @override
-  Future<User?> getUser() async {
-    return userDataSource.getUser();
+  Future<User> getCurrentUser() async {
+    return _userDataSource.getCurrentUser();
   }
 
   @override
-  Future<void> updateUser(Map<String, dynamic> data) async {
-    return userDataSource.updateUser(data);
+  Future<void> updateUser(String? displayName, String? photoURL) async {
+    return _userDataSource.updateUser();
   }
 
   @override
   Future<bool> checkIfUserExist(String uid) async {
-    return userDataSource.checkIfUserExist(uid);
+    return _userDataSource.checkIfUserExist(uid);
   }
 }
