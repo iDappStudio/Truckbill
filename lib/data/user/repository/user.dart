@@ -15,8 +15,8 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<void> updateUser(String? displayName, String? photoURL) async {
-    return _userDataSource.updateUser();
+  Future<void> updateUser({String? displayName, String? photoURL}) async {
+    return _userDataSource.updateUser(displayName: displayName, photoURL: photoURL);
   }
 
   @override

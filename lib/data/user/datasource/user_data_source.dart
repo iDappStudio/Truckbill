@@ -19,7 +19,7 @@ class UserDataSource {
     final user = await getCurrentUser();
 
     try {
-      await user.updateProfile(displayName: displayName, photoURL: photoURL);
+      await user.updateProfile(displayName: displayName ?? user.displayName, photoURL: photoURL ?? user.photoURL);
       await user.reload();
     } catch (e) {
       throw Exception("Failed to update user data");
