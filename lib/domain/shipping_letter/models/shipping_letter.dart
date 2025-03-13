@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'shipping_letter.freezed.dart'; 
+part 'shipping_letter.freezed.dart';
 
 @freezed
 abstract class ShippingLetter with _$ShippingLetter {
@@ -13,5 +13,4 @@ abstract class ShippingLetter with _$ShippingLetter {
     required double price,
     required List<String> documentScans,
   }) = _ShippingLetter;
-
 }
