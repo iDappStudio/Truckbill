@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:truckbill/data/shipping_letter/dtos/shipping_letter_dto.dart';
 import 'package:truckbill/domain/mapper/shipping_letter_mapper/shipping_letter_mapper.dart';
 import 'package:truckbill/domain/shipping_letter/models/shipping_letter.dart';
 
+@singleton
 class ShippingLetterDataSource {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
