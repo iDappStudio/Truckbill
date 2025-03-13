@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:truckbill/data/shipping_letter/dtos/shipping_letter_dto.dart';
 import 'package:truckbill/domain/shipping_letter/models/shipping_letter.dart';
 
+@injectable
 class ShippingLetterMapper {
-  static ShippingLetterDto toDto(ShippingLetter letter) {
+  ShippingLetterDto toDto(ShippingLetter letter) {
     return ShippingLetterDto(
       letterNumber: letter.letterNumber,
       loadingPlace: letter.loadingPlace,
@@ -14,7 +16,7 @@ class ShippingLetterMapper {
     );
   }
 
-  static ShippingLetter toDomain(ShippingLetterDto dto) {
+  ShippingLetter toDomain(ShippingLetterDto dto) {
     return ShippingLetter(
       letterNumber: dto.letterNumber,
       loadingPlace: dto.loadingPlace,
