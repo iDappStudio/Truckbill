@@ -6,10 +6,11 @@ import 'package:truckbill/domain/auth/repository/auth_repository.dart';
 
 @Singleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl(this._googleAuthDataSource, this._appleAuthDataSource);
+  AuthRepositoryImpl(this._googleAuthDataSource, this._appleAuthDataSource, this._firebaseAuth);
 
   final GoogleAuthDataSource _googleAuthDataSource;
   final AppleAuthDataSource _appleAuthDataSource;
+  final FirebaseAuth _firebaseAuth;
 
   @override
   Future<UserCredential> signInWithGoogle() async {
@@ -19,5 +20,14 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<UserCredential> signInWithApple() async {
     return _appleAuthDataSource.signInWithApple();
+  }
+
+  @override
+  String get userId {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) {
+      throw Exception("No logged-in user.");
+    }
+    return user.uid;
   }
 }
