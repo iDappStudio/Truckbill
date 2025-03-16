@@ -28,11 +28,4 @@ class ShippingLetterMapper {
     );
   }
 
-  ShippingLetterDto fromFirestore(DocumentSnapshot<Map<String, dynamic>> snapshot, SnapshotOptions? _) {
-    return ShippingLetterDto.fromJson(snapshot.data()!);
-  }
-
-   Map<String, Object?> toFirestore(ShippingLetterDto dto, SetOptions? _) {
-      return dto.toJson();
-  }
 }
