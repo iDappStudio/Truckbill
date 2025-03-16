@@ -5,6 +5,7 @@ import 'package:truckbill/core/di/di.dart';
 import 'package:truckbill/core/di/get_it.dart';
 import 'package:truckbill/firebase_options.dart';
 import 'package:truckbill/presentation/router/app_router.dart';
+import 'core/theme/app_theme.dart'; // Importujemy AppTheme
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +25,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
-      routerConfig: AppRouter.router,
+      title: 'TruckBill App',
+      theme: AppTheme.lightTheme, 
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system, 
+     routerConfig: AppRouter.router, 
     );
   }
 }
