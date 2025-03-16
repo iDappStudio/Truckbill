@@ -27,4 +27,5 @@ class ShippingLetterMapper {
       documentScans: dto.documentScans,
     );
   }
+
 }
