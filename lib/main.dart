@@ -5,17 +5,13 @@ import 'package:truckbill/core/di/di.dart';
 import 'package:truckbill/core/di/get_it.dart';
 import 'package:truckbill/firebase_options.dart';
 import 'package:truckbill/presentation/router/app_router.dart';
+import 'package:truckbill/presentation/theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupDependencies();
-  runApp(
-    HookedBlocConfigProvider(
-      injector: () => getIt.get,
-      child: const MyApp(),
-    ),
-  );
+  runApp(HookedBlocConfigProvider(injector: () => getIt.get, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,8 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      title: 'TruckBill App',
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
     );
   }
