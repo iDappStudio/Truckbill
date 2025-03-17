@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:truckbill/presentation/theme/colors/app_colors.dart';
+import 'package:truckbill/presentation/theme/colors/dark_app_color.dart';
+import 'package:truckbill/presentation/theme/colors/light_app_color.dart';
 
 class AppTheme {
   static ThemeData getTheme(AppColors colors) {
     return ThemeData(
-      brightness: colors.isDarkMode ? Brightness.dark : Brightness.light,
       primaryColor: colors.primary,
       scaffoldBackgroundColor: colors.background,
       colorScheme: colors.colorScheme, 
@@ -19,5 +20,12 @@ class AppTheme {
         ),
       ),
     );
+  }
+  static ThemeData get light {
+    return AppTheme.getTheme(LightColors());
+  }
+
+  static ThemeData get dark {
+    return AppTheme.getTheme(DarkColors());
   }
 }

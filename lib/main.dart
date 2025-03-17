@@ -6,30 +6,23 @@ import 'package:truckbill/core/di/get_it.dart';
 import 'package:truckbill/firebase_options.dart';
 import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_theme.dart';
-import 'package:truckbill/presentation/theme/colors/app_colors.dart';
-import 'package:truckbill/presentation/theme/colors/dark_app_color.dart';
-import 'package:truckbill/presentation/theme/colors/light_app_color.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupDependencies();
-
-  final AppColors appColors = LightColors();
-  runApp(HookedBlocConfigProvider(injector: () => getIt.get, child: MyApp(appColors: appColors)));
+  runApp(HookedBlocConfigProvider(injector: () => getIt.get, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  final AppColors appColors;
-
-  const MyApp({super.key, required this.appColors});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'TruckBill App',
-      theme: AppTheme.getTheme(appColors),
-      darkTheme: AppTheme.getTheme(DarkColors()),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
     );
