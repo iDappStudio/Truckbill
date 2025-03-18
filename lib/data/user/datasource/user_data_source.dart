@@ -30,4 +30,9 @@ class UserDataSource {
     final doc = await _firestore.collection('users').doc(uid).get();
     return doc.exists;
   }
+
+  Future<void> createUser(String uid, String email) async {
+    await _firestore.collection('users').doc(uid).set({'email': email});
+  }
+
 }
