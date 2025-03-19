@@ -23,4 +23,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<bool> checkIfUserExist(String uid) async {
     return _userDataSource.checkIfUserExist(uid);
   }
+
+   @override
+  Future<void> createUser(String uid, String email) async {
+    await _userDataSource.createUser(uid, email);
+  }
 }
