@@ -13,6 +13,7 @@ abstract class AppColors {
     this.transparent = Colors.transparent,
     this.white = Colors.white,
     this.black = Colors.black,
+    this.lightBlue = const Color(0xFFE3F2FD)
   });
 
   final Color primary;
@@ -26,6 +27,7 @@ abstract class AppColors {
   final Color transparent;
   final Color white;
   final Color black;
+  final Color? lightBlue;
 
   bool get isDarkMode;
 
@@ -38,6 +40,6 @@ abstract class AppColors {
         surface: surface,
         onSurface: text,
         error: warning,
-        onError: white,
+        onError: white,        
       );
 }
