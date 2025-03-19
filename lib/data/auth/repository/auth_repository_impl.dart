@@ -8,7 +8,13 @@ import 'package:truckbill/domain/auth/repository/auth_repository.dart';
 
 @Singleton(as: AuthRepository)
 class AuthRepositoryImpl implements AuthRepository {
-  AuthRepositoryImpl(this._googleAuthDataSource, this._appleAuthDataSource, this._firebaseAuth, this._emailDataSource, this._userDataSource);
+  AuthRepositoryImpl(
+    this._googleAuthDataSource,
+    this._appleAuthDataSource,
+    this._firebaseAuth,
+    this._emailDataSource,
+    this._userDataSource,
+  );
 
   final GoogleAuthDataSource _googleAuthDataSource;
   final AppleAuthDataSource _appleAuthDataSource;
@@ -18,12 +24,31 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<UserCredential> signInWithGoogle() async {
-    return _googleAuthDataSource.signInWithGoogle();
+    final userCredential = await _googleAuthDataSource.signInWithGoogle();
+     final uid = userCredential.user!.uid;
+     final email = userCredential.user!.email ?? "";
+    
+    final exists = await _userDataSource.checkIfUserExist(uid);
+    if (!exists) {
+      await _userDataSource.createUser(uid, email);
+    }
+
+    return userCredential;
   }
+
 
   @override
   Future<UserCredential> signInWithApple() async {
-    return _appleAuthDataSource.signInWithApple();
+    final userCredential = await _appleAuthDataSource.signInWithApple();
+    final uid = userCredential.user!.uid;
+    final email = userCredential.user!.email ?? "";
+
+    final exists = await _userDataSource.checkIfUserExist(uid);
+    if (!exists) {
+      await _userDataSource.createUser(uid, email);
+    }
+
+    return userCredential;
   }
 
   @override
