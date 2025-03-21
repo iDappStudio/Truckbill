@@ -1,0 +1,8 @@
+{
+  "sign_in": "Sign in",
+  "welcome_back": "Welcome back! Sign in to continue.",
+  "email": "Email",
+  "password": "Password",
+  "signin_google": "Sign in with Google",
+  "signin_apple": "Sign in with Apple"
+}

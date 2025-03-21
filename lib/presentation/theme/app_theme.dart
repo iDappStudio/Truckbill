@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:truckbill/presentation/theme/app_dimens.dart';
 import 'package:truckbill/presentation/theme/colors/app_colors.dart';
 import 'package:truckbill/presentation/theme/colors/dark_app_color.dart';
 import 'package:truckbill/presentation/theme/colors/light_app_color.dart';
@@ -10,16 +11,15 @@ class AppTheme {
       scaffoldBackgroundColor: colors.background,
       colorScheme: colors.colorScheme,
       appBarTheme: AppBarTheme(backgroundColor: colors.background, iconTheme: IconThemeData(color: colors.text)),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(backgroundColor: colors.primary, foregroundColor: colors.text),
-      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(backgroundColor: colors.primary)),
       inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: colors.lightBlue,
-        border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.all(Radius.circular(8.0))),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: colors.primary, width: AppDimens.l),
+          borderRadius: BorderRadius.all(Radius.circular(AppDimens.s)),
+        ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(color: colors.primary, width: 2.0),
+          borderRadius: BorderRadius.all(Radius.circular(AppDimens.s)),
+          borderSide: BorderSide(color: colors.primary, width: AppDimens.xs),
         ),
         hintStyle: TextStyle(color: colors.surface),
       ),

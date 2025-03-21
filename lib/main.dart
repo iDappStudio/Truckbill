@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart'; // Dodaj ten import
 import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:truckbill/core/di/di.dart';
 import 'package:truckbill/core/di/get_it.dart';
 import 'package:truckbill/firebase_options.dart';
+import 'package:truckbill/generated/l10n.dart'; // Import tłumaczeń
 import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_theme.dart';
 
@@ -26,6 +28,13 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
       routerConfig: AppRouter.router,
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

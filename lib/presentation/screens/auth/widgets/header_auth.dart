@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:truckbill/presentation/theme/app_dimens.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
-import 'package:truckbill/presentation/theme/colors/light_app_color.dart';
 
 class HeaderAuth extends StatelessWidget {
   const HeaderAuth({super.key, required this.mainText, required this.secondText});
@@ -11,13 +10,13 @@ class HeaderAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = LightColors();
+    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.only(top: AppDimens.s),
       child: Center(
         child: Column(
           children: [
-            Text(mainText, style: AppTypography.h1.copyWith(fontSize: 40, color: colors.primary)),
+            Text(mainText, style: AppTypography.h1.copyWith(color: colors.primary, fontSize: AppDimens.xxl)),
             SizedBox(height: AppDimens.s),
             Text(secondText, style: AppTypography.h4.copyWith(color: colors.surface)),
           ],
