@@ -39,5 +39,6 @@ abstract class AppColors {
         onSurface: text,
         error: warning,
         onError: white,
+        shadow: transparent,       
       );
 }
