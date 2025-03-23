@@ -14,7 +14,7 @@ class OtherOptions extends StatelessWidget {
             Expanded(child: Divider(color: context.colors.surface)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppDimens.l),
-              child: Text('or', style: TextStyle(color: context.colors.surface)),
+              child: Text(context.s.or, style: TextStyle(color: context.colors.surface)),
             ),
             Expanded(child: Divider(color: context.colors.surface)),
           ],
