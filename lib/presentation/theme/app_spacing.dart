@@ -5,7 +5,7 @@ import 'package:truckbill/presentation/theme/app_dimens.dart';
 
 class AppSpacing extends SizedBox {
   const AppSpacing.small() : super(height: AppDimens.s);
-  const AppSpacing.medium() : super(height: AppDimens.l);
-  const AppSpacing.large() : super(height: AppDimens.xl);
+  const AppSpacing.medium() : super(height: AppDimens.m);
+  const AppSpacing.large() : super(height: AppDimens.l);
   const AppSpacing.xLarge() : super(height: AppDimens.xxl);
 }

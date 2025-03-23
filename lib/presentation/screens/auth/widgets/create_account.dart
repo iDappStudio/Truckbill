@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:truckbill/presentation/router/routes/app_routes.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
@@ -9,8 +7,10 @@ class CreateAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => context.go(AppRoutes.createAccount),
+    return TextButton(
+      onPressed: () {
+        //context.go(AppRoutes.createAccount)
+      },
       child: RichText(
         text: TextSpan(
           text: '${context.s.dont_have_account} ',

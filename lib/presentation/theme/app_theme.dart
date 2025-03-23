@@ -20,7 +20,6 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          side: BorderSide(color: colors.primary),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.xl)),
         ),
       ),
