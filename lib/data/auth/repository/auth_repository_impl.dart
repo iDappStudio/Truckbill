@@ -11,14 +11,12 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(
     this._googleAuthDataSource,
     this._appleAuthDataSource,
-    this._firebaseAuth,
     this._emailDataSource,
     this._userDataSource,
   );
 
   final GoogleAuthDataSource _googleAuthDataSource;
   final AppleAuthDataSource _appleAuthDataSource;
-  final FirebaseAuth _firebaseAuth;
   final UserDataSource _userDataSource;
   final EmailDataSource _emailDataSource;
 
@@ -53,7 +51,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   String get userId {
-    final user = _firebaseAuth.currentUser;
+    final user = FirebaseAuth.instance.currentUser;
     if (user == null) {
       throw Exception("No logged-in user.");
     }

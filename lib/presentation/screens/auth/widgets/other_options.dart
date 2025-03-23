@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:truckbill/presentation/theme/app_dimens.dart';
+import 'package:truckbill/utils/context_extensions.dart';
 
 class OtherOptions extends StatelessWidget {
   const OtherOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final colors = context.colors;
     return Column(
       children: [
         Row(

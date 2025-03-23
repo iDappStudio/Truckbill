@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:truckbill/presentation/theme/app_dimens.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
+import 'package:truckbill/utils/context_extensions.dart';
 
 class HeaderAuth extends StatelessWidget {
   const HeaderAuth({super.key, required this.mainText, required this.secondText});
@@ -10,7 +11,7 @@ class HeaderAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final colors = context.colors;
     return Padding(
       padding: const EdgeInsets.only(top: AppDimens.s),
       child: Center(

@@ -11,7 +11,19 @@ class AppTheme {
       scaffoldBackgroundColor: colors.background,
       colorScheme: colors.colorScheme,
       appBarTheme: AppBarTheme(backgroundColor: colors.background, iconTheme: IconThemeData(color: colors.text)),
-      elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(backgroundColor: colors.primary)),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size(double.infinity, AppDimens.xxl),
+          backgroundColor: colors.primary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.s)),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          side: BorderSide(color: colors.primary),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.xl)),
+        ),
+      ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colors.primary, width: AppDimens.l),

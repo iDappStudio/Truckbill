@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:truckbill/presentation/theme/app_dimens.dart';
+import 'package:truckbill/presentation/theme/app_typography.dart';
+import 'package:truckbill/presentation/widgets/assets/svg_icon.dart';
+import 'package:truckbill/utils/context_extensions.dart';
 
 class LoginSocials extends StatelessWidget {
   const LoginSocials({super.key, required this.text, required this.assetName});
@@ -9,26 +12,18 @@ class LoginSocials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    final colors = context.colors;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return SizedBox(
+      width: double.infinity,
+      height: AppDimens.xxl,
       child: TextButton.icon(
         onPressed: () {},
-        icon: SvgPicture.asset(assetName, height: 20),
-        label: Text(
-          text,
-          style: TextStyle(
-            color: colors.primary,
-            fontSize: 16,
-          ),
-        ),
+        icon: SvgIcon(assetName: assetName),
+        label: Text(text, style: AppTypography.h4),
         style: TextButton.styleFrom(
-          minimumSize: Size(double.infinity, 60),
-          side: BorderSide(color: colors.primary, width: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
+          side: BorderSide(color: colors.primary),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.xl)),
         ),
       ),
     );
