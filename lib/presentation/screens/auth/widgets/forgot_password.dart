@@ -9,15 +9,13 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = context.s;
-    final colors = context.colors;
     return Align(
       alignment: Alignment.centerRight,
       child: GestureDetector(
         onTap: () => context.push(AppRoutes.forgotPassword),
         child: Text(
-          s.forgot_password,
-          style: AppTypography.h5.copyWith(fontWeight: FontWeight.bold, color: colors.error),
+          context.s.forgot_password,
+          style: AppTypography.h5.copyWith(fontWeight: FontWeight.bold, color: context.colors.error),
         ),
       ),
     );

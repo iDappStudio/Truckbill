@@ -11,15 +11,14 @@ class HeaderAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return Padding(
       padding: const EdgeInsets.only(top: AppDimens.s),
       child: Center(
         child: Column(
           children: [
-            Text(mainText, style: AppTypography.h1.copyWith(color: colors.primary, fontSize: AppDimens.xxl)),
+            Text(mainText, style: AppTypography.h1.copyWith(color: context.colors.primary, fontSize: AppDimens.xxl)),
             SizedBox(height: AppDimens.s),
-            Text(secondText, style: AppTypography.h4.copyWith(color: colors.surface)),
+            Text(secondText, style: AppTypography.h4.copyWith(color: context.colors.surface)),
           ],
         ),
       ),

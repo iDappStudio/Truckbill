@@ -7,7 +7,7 @@ import 'package:truckbill/presentation/screens/auth/widgets/header_auth.dart';
 import 'package:truckbill/presentation/screens/auth/widgets/login_socials.dart';
 import 'package:truckbill/presentation/screens/auth/widgets/other_options.dart';
 import 'package:truckbill/presentation/theme/app_dimens.dart';
-import 'package:truckbill/presentation/widgets/appbar/basic_appbar.dart';
+import 'package:truckbill/presentation/theme/app_spacing.dart';
 import 'package:truckbill/presentation/widgets/button/basic_button.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
@@ -16,31 +16,30 @@ class SignIn extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = context.s;
     return Scaffold(
-      appBar: BasicAppbar(),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
           child: Column(
             children: [
-              HeaderAuth(mainText: s.sign_in, secondText: s.welcome_back),
-              const SizedBox(height: AppDimens.xxl),
-              TextFormField(decoration: InputDecoration(hintText: s.email)),
-              const SizedBox(height: AppDimens.l),
-              TextFormField(decoration: InputDecoration(hintText: s.password)),
-              const SizedBox(height: AppDimens.xxl),
-              BasicButton(onPressed: () {}, text: s.sign_in),
-              const SizedBox(height: AppDimens.s),
+              HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
+              const AppSpacing.xLarge(),
+              TextFormField(decoration: InputDecoration(hintText: context.s.email)),
+              const AppSpacing.medium(),
+              TextFormField(decoration: InputDecoration(hintText: context.s.password)),
+              const AppSpacing.xLarge(),
+              BasicButton(onPressed: () {}, text: context.s.sign_in),
+              const AppSpacing.small(),
               const ForgotPassword(),
-              const SizedBox(height: AppDimens.xxl),
+              const AppSpacing.xLarge(),
               const CreateAccount(),
-              const SizedBox(height: AppDimens.xl),
+              const AppSpacing.large(),
               const OtherOptions(),
-              const SizedBox(height: AppDimens.xl),
-              LoginSocials(text: s.signin_google, assetName: AppAssets.googleIcon),
-              const SizedBox(height: AppDimens.l),
-              LoginSocials(text: s.signin_apple, assetName: AppAssets.appleIcon),
+              const AppSpacing.large(),
+              LoginSocials(text: context.s.signin_google, assetName: AppAssets.googleIcon),
+              const AppSpacing.medium(),
+              LoginSocials(text: context.s.signin_apple, assetName: AppAssets.appleIcon),
             ],
           ),
         ),

@@ -10,10 +10,9 @@ class BasicButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return ElevatedButton(
         onPressed: onPressed,
-        child: Text(text, style: AppTypography.h2.copyWith(color: colors.onPrimary)),
+        child: Text(text, style: AppTypography.h2.copyWith(color: context.colors.onPrimary)),
       );
   }
 }

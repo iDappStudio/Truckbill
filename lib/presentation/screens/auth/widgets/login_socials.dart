@@ -12,8 +12,6 @@ class LoginSocials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
-
     return SizedBox(
       width: double.infinity,
       height: AppDimens.xxl,
@@ -22,7 +20,7 @@ class LoginSocials extends StatelessWidget {
         icon: SvgIcon(assetName: assetName),
         label: Text(text, style: AppTypography.h4),
         style: TextButton.styleFrom(
-          side: BorderSide(color: colors.primary),
+          side: BorderSide(color: context.colors.primary),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.xl)),
         ),
       ),

@@ -8,6 +8,7 @@ import 'package:truckbill/firebase_options.dart';
 import 'package:truckbill/generated/l10n.dart';
 import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_theme.dart';
+import 'package:truckbill/utils/app_locale.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +28,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      locale: const Locale('pl'),
-      supportedLocales: const [Locale('pl', '')],
+      locale: AppLocale.main,
+      supportedLocales: AppLocale.supported,
       localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,

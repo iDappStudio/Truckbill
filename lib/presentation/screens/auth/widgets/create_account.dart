@@ -9,19 +9,16 @@ class CreateAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = context.s;
-    final colors = context.colors;
-
     return GestureDetector(
       onTap: () => context.go(AppRoutes.createAccount),
       child: RichText(
         text: TextSpan(
-          text: '${s.dont_have_account} ',
-          style: AppTypography.h5.copyWith(color: colors.surface),
+          text: '${context.s.dont_have_account} ',
+          style: AppTypography.h5.copyWith(color: context.colors.surface),
           children: [
             TextSpan(
-              text: s.sign_up,
-              style: AppTypography.h5.copyWith(fontWeight: FontWeight.bold, color: colors.primary),
+              text: context.s.sign_up,
+              style: AppTypography.h5.copyWith(fontWeight: FontWeight.bold, color: context.colors.primary),
             ),
           ],
         ),

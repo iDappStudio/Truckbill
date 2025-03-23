@@ -19,6 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
   final AppleAuthDataSource _appleAuthDataSource;
   final UserDataSource _userDataSource;
   final EmailDataSource _emailDataSource;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   @override
   Future<UserCredential> signInWithGoogle() async {
@@ -51,7 +52,7 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   String get userId {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _firebaseAuth.currentUser;
     if (user == null) {
       throw Exception("No logged-in user.");
     }

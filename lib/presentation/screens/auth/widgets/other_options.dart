@@ -7,17 +7,16 @@ class OtherOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return Column(
       children: [
         Row(
           children: [
-            Expanded(child: Divider(color: colors.surface)),
+            Expanded(child: Divider(color: context.colors.surface)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppDimens.l),
-              child: Text('or', style: TextStyle(color: colors.surface)),
+              child: Text('or', style: TextStyle(color: context.colors.surface)),
             ),
-            Expanded(child: Divider(color: colors.surface)),
+            Expanded(child: Divider(color: context.colors.surface)),
           ],
         ),
       ],
