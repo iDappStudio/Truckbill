@@ -11,9 +11,6 @@ class AppTheme {
       scaffoldBackgroundColor: colors.background,
       colorScheme: colors.colorScheme,
       appBarTheme: AppBarTheme(backgroundColor: colors.background, iconTheme: IconThemeData(color: colors.text)),
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppDimens.xl))),
-      ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colors.primary, width: AppDimens.l),
