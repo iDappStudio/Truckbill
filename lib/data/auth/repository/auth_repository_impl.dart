@@ -11,16 +11,15 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(
     this._googleAuthDataSource,
     this._appleAuthDataSource,
-    this._firebaseAuth,
     this._emailDataSource,
     this._userDataSource,
   );
 
   final GoogleAuthDataSource _googleAuthDataSource;
   final AppleAuthDataSource _appleAuthDataSource;
-  final FirebaseAuth _firebaseAuth;
   final UserDataSource _userDataSource;
   final EmailDataSource _emailDataSource;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   @override
   Future<UserCredential> signInWithGoogle() async {

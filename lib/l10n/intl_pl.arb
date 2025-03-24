@@ -1,0 +1,13 @@
+{
+  "@@locale": "pl",
+  "sign_in": "Zaloguj się",
+  "welcome_back": "Witaj ponownie! Zaloguj się, aby kontynuować.",
+  "email": "Email",
+  "password": "Hasło",
+  "signin_google": "Zaloguj się przez Google",
+  "signin_apple": "Zaloguj się przez Apple",
+  "forgot_password": "Zapomniałeś hasła?",
+  "dont_have_account": "Nie masz konta?",
+  "sign_up": "Zarejestruj się",
+  "or": "albo"
+}
