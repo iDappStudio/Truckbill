@@ -9,5 +9,9 @@
   "forgot_password": "Zapomniałeś hasła?",
   "dont_have_account": "Nie masz konta?",
   "sign_up": "Zarejestruj się",
-  "or": "albo"
+  "or": "albo",
+  "create_account": "Stwórz Konto",
+  "joins_us": "Dołącz do nas i zacznij korzystać już teraz!",
+  "confirm_password": "Powtórz hasło",
+  "already_have_account": "Masz już konto?"
 }
