@@ -12,8 +12,8 @@ import 'package:truckbill/presentation/theme/app_spacing.dart';
 import 'package:truckbill/presentation/widgets/button/basic_button.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
-class SignIn extends HookWidget {
-  const SignIn({super.key});
+class SignInPage extends HookWidget {
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,9 @@ class SignIn extends HookWidget {
                 const AppSpacing.xLarge(),
                 BasicButton(onPressed: () {}, text: context.s.sign_in),
                 const AppSpacing.small(),
-                const ForgotPassword(),
+                const ForgotPasswordButton(),
                 const AppSpacing.xLarge(),
-                const CreateAccount(),
+                const CreateAccountButton(),
                 const AppSpacing.large(),
                 const OtherOptions(),
                 const AppSpacing.large(),

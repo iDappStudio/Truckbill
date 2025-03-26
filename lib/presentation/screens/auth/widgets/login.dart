@@ -3,15 +3,13 @@ import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginButton extends StatelessWidget {
+  const LoginButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        SignInRoute().go(context);
-      },
+      onPressed: () => SignInRoute().go(context),
       child: RichText(
         text: TextSpan(
           text: '${context.s.already_have_account} ',

@@ -14,7 +14,7 @@ class AppRouter {
 class SignInRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignIn();
+    return const SignInPage();
   }
 }
 
@@ -22,6 +22,6 @@ class SignInRoute extends GoRouteData {
 class SignUpRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SignUp();
+    return const SignUpPage();
   }
 }

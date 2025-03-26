@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class ForgotPasswordButton extends StatelessWidget {
+  const ForgotPasswordButton({super.key});
 
   @override
   Widget build(BuildContext context) {
