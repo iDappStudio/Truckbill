@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:truckbill/presentation/router/routes/app_routes.dart';
+import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
@@ -11,7 +10,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        context.go(AppRoutes.login);
+        SignInRoute().go(context);
       },
       child: RichText(
         text: TextSpan(

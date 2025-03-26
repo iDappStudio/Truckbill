@@ -18,21 +18,23 @@ class SignUp extends HookWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppDimens.xl),
-          child: Column(
-            children: [
-              HeaderAuth(mainText: context.s.create_account, secondText: context.s.joins_us),
-              const AppSpacing.xLarge(),
-              TextFormField(decoration: InputDecoration(hintText: context.s.email)),
-              const AppSpacing.medium(),
-              PasswordField(hintText: context.s.password),
-              const AppSpacing.medium(),
-              PasswordField(hintText: context.s.confirm_password),
-              const AppSpacing.xLarge(),
-              BasicButton(onPressed: () {}, text: context.s.sign_up),
-              const AppSpacing.xLarge(),
-              Login(),
-              
-            ],
+          child: SafeArea(
+            child: Column(
+              children: [
+                HeaderAuth(mainText: context.s.create_account, secondText: context.s.joins_us),
+                const AppSpacing.xLarge(),
+                TextFormField(decoration: InputDecoration(hintText: context.s.email)),
+                const AppSpacing.medium(),
+                PasswordField(hintText: context.s.password),
+                const AppSpacing.medium(),
+                PasswordField(hintText: context.s.confirm_password),
+                const AppSpacing.xLarge(),
+                BasicButton(onPressed: () {}, text: context.s.sign_up),
+                const AppSpacing.xLarge(),
+                Login(),
+                
+              ],
+            ),
           ),
         ),
       ),
