@@ -17,9 +17,17 @@ class HeaderAuth extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            Text(mainText, style: AppTypography.h1.copyWith(color: context.colors.primary, fontSize: AppDimens.xxl)),
+            Text(
+              mainText,
+              style: AppTypography.h1.copyWith(color: context.colors.primary, fontSize: AppDimens.xxl),
+              textAlign: TextAlign.center,
+            ),
             AppSpacing.small(),
-            Text(secondText, style: AppTypography.h4.copyWith(color: context.colors.surface), textAlign: TextAlign.center,),
+            Text(
+              secondText,
+              style: AppTypography.h4.copyWith(color: context.colors.surface),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
