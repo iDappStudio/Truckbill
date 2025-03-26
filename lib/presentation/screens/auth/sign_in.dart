@@ -6,13 +6,14 @@ import 'package:truckbill/presentation/screens/auth/widgets/forgot_password.dart
 import 'package:truckbill/presentation/screens/auth/widgets/header_auth.dart';
 import 'package:truckbill/presentation/screens/auth/widgets/login_socials.dart';
 import 'package:truckbill/presentation/screens/auth/widgets/other_options.dart';
+import 'package:truckbill/presentation/screens/auth/widgets/password_field.dart';
 import 'package:truckbill/presentation/theme/app_dimens.dart';
 import 'package:truckbill/presentation/theme/app_spacing.dart';
 import 'package:truckbill/presentation/widgets/button/basic_button.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
-class SignIn extends HookWidget {
-  const SignIn({super.key});
+class SignInPage extends HookWidget {
+  const SignInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +22,28 @@ class SignIn extends HookWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
-          child: Column(
-            children: [
-              HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
-              const AppSpacing.xLarge(),
-              TextFormField(decoration: InputDecoration(hintText: context.s.email)),
-              const AppSpacing.medium(),
-              TextFormField(decoration: InputDecoration(hintText: context.s.password)),
-              const AppSpacing.xLarge(),
-              BasicButton(onPressed: () {}, text: context.s.sign_in),
-              const AppSpacing.small(),
-              const ForgotPassword(),
-              const AppSpacing.xLarge(),
-              const CreateAccount(),
-              const AppSpacing.large(),
-              const OtherOptions(),
-              const AppSpacing.large(),
-              LoginSocials(text: context.s.signin_google, assetName: AppAssets.googleIcon, onPressed: () {}),
-              const AppSpacing.medium(),
-              LoginSocials(text: context.s.signin_apple, assetName: AppAssets.appleIcon, onPressed: () {}),
-            ],
+          child: SafeArea(
+            child: Column(
+              children: [
+                HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
+                const AppSpacing.xLarge(),
+                TextFormField(decoration: InputDecoration(hintText: context.s.email)),
+                const AppSpacing.medium(),
+                PasswordField(hintText: context.s.password),
+                const AppSpacing.xLarge(),
+                BasicButton(onPressed: () {}, text: context.s.sign_in),
+                const AppSpacing.small(),
+                const ForgotPasswordButton(),
+                const AppSpacing.xLarge(),
+                const CreateAccountButton(),
+                const AppSpacing.large(),
+                const OtherOptions(),
+                const AppSpacing.large(),
+                LoginSocials(text: context.s.signin_google, assetName: AppAssets.googleIcon, onPressed: () {}),
+                const AppSpacing.medium(),
+                LoginSocials(text: context.s.signin_apple, assetName: AppAssets.appleIcon, onPressed: () {}),
+              ],
+            ),
           ),
         ),
       ),
