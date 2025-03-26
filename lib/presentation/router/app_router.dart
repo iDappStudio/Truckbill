@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:truckbill/presentation/router/routes/app_routes.dart';
+import 'package:truckbill/presentation/screens/auth/forgot_password.dart';
 import 'package:truckbill/presentation/screens/auth/sign_in.dart';
 import 'package:truckbill/presentation/screens/auth/sign_up.dart';
 
@@ -23,5 +24,13 @@ class SignUpRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const SignUpPage();
+  }
+}
+
+@TypedGoRoute<ForgotPasswordRoute>(path: AppRoutes.forgotPassword)
+class ForgotPasswordRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ForgotPasswordPage();
   }
 }

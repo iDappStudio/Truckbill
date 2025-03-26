@@ -13,5 +13,8 @@
   "create_account": "Stwórz Konto",
   "joins_us": "Dołącz do nas i zacznij korzystać już teraz!",
   "confirm_password": "Powtórz hasło",
-  "already_have_account": "Masz już konto?"
+  "already_have_account": "Masz już konto?",
+  "reset_email": "Zresetuj hasło ",
+  "enter_email": "Enter your email address to receive a password reset link.",
+  "send_link": "Wyślij link"
 }
