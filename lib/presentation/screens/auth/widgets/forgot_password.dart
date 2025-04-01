@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:truckbill/presentation/router/app_router.dart';
 import 'package:truckbill/presentation/theme/app_typography.dart';
 import 'package:truckbill/utils/context_extensions.dart';
 
@@ -10,9 +11,7 @@ class ForgotPasswordButton extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: TextButton(
-        onPressed: () {
-           // context.push(AppRoutes.forgotPassword);
-        },
+        onPressed: () => ForgotPasswordRoute().push(context),
         child: Text(
           context.s.forgot_password,
           style: AppTypography.h5.copyWith(fontWeight: FontWeight.bold, color: context.colors.error),
