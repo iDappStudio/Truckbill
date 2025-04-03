@@ -1,12 +1,13 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:bloc/bloc.dart';
+import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:truckbill/domain/auth/repository/auth_repository.dart';
+import 'package:truckbill/presentation/bloc/button/login_action.dart';
 import 'package:truckbill/presentation/bloc/button/login_state.dart';
 
 @injectable
-class LoginCubit extends Cubit<LoginState> {
+class LoginCubit extends ActionCubit<LoginState, LoginAction> {
   final AuthRepository authRepository;
 
   LoginCubit(this.authRepository) : super(const LoginState.initial());
@@ -16,8 +17,9 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       await authRepository.signInWithGoogle();
       emit(const LoginState.success());
+      dispatch(const LoginAction.success());
     } catch (e) {
-      emit(LoginState.failure(errorMessage: "Error: \${e.toString()}"));
+      dispatch(LoginAction.failure(errorMessage: "Error: ${e.toString()}"));
     }
   }
 
@@ -26,8 +28,9 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       await authRepository.signInWithApple();
       emit(const LoginState.success());
+      dispatch(const LoginAction.success());
     } catch (e) {
-      emit(LoginState.failure(errorMessage: "Error: \${e.toString()}"));
+      dispatch(LoginAction.failure(errorMessage: "Error: ${e.toString()}"));
     }
   }
 
@@ -36,8 +39,9 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       await authRepository.signInWithEmail(email, password);
       emit(const LoginState.success());
+      dispatch(const LoginAction.success());
     } catch (e) {
-      emit(LoginState.failure(errorMessage: "Error: \${e.toString()}"));
+      dispatch(LoginAction.failure(errorMessage: "Error: ${e.toString()}"));
     }
   }
 }

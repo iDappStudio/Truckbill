@@ -9,3 +9,4 @@ class LoginState with _$LoginState {
   const factory LoginState.success() = LoginSuccessState;
   const factory LoginState.failure({required String errorMessage}) = LoginFailureState;
 }
+

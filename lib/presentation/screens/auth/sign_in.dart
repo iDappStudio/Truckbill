@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:truckbill/presentation/assets/app_asset.dart';
+import 'package:truckbill/presentation/bloc/button/login_action.dart';
 import 'package:truckbill/presentation/bloc/button/login_cubit.dart';
 import 'package:truckbill/presentation/bloc/button/login_state.dart';
 import 'package:truckbill/presentation/screens/auth/widgets/create_account.dart';
@@ -21,12 +22,15 @@ class SignInPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = useBloc<LoginCubit>();
+    final state = useBlocBuilder(cubit);
 
-    useBlocListener<LoginCubit, LoginState>(cubit, (cubit, state, context) {
-      if (state is LoginSuccessState) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Login successful!')));
-      } else if (state is LoginFailureState) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+    useActionListener<LoginAction>(cubit, (action) {
+      if (action is LoginInitialAction) {
+      } else if (action is LoginLoadingAction) {
+      } else if (action is LoginSuccessAction) {
+        // Nawigacja do głownej 
+      } else if (action is LoginFailureAction) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(action.errorMessage)));
       }
     });
 
@@ -35,51 +39,57 @@ class SignInPage extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
-          child: SafeArea(
-            child: Column(
-              children: [
-                HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
-                const AppSpacing.xLarge(),
-                TextFormField(decoration: InputDecoration(hintText: context.s.email), controller: emailController),
-                const AppSpacing.medium(),
-                PasswordField(hintText: context.s.password, controller: passwordController),
-                const AppSpacing.xLarge(),
-                BasicButton(
-                  onPressed: () {
-                    cubit.loginWithEmail(emailController.text, passwordController.text);
-                  },
-                  text: context.s.sign_in,
+      body:
+          state is LoginLoadingState
+              ? const Center(child: CircularProgressIndicator()) 
+              : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
+                  child: SafeArea(
+                    child: Column(
+                      children: [
+                        HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
+                        const AppSpacing.xLarge(),
+                        TextFormField(
+                          decoration: InputDecoration(hintText: context.s.email),
+                          controller: emailController,
+                        ),
+                        const AppSpacing.medium(),
+                        PasswordField(hintText: context.s.password, controller: passwordController),
+                        const AppSpacing.xLarge(),
+                        BasicButton(
+                          onPressed: () {
+                            cubit.loginWithEmail(emailController.text, passwordController.text);
+                          },
+                          text: context.s.sign_in,
+                        ),
+                        const AppSpacing.small(),
+                        const ForgotPasswordButton(),
+                        const AppSpacing.xLarge(),
+                        const CreateAccountButton(),
+                        const AppSpacing.large(),
+                        const OtherOptions(),
+                        const AppSpacing.large(),
+                        LoginSocials(
+                          text: context.s.signin_google,
+                          assetName: AppAssets.googleIcon,
+                          onPressed: () {
+                            cubit.loginWithGoogle();
+                          },
+                        ),
+                        const AppSpacing.medium(),
+                        LoginSocials(
+                          text: context.s.signin_apple,
+                          assetName: AppAssets.appleIcon,
+                          onPressed: () {
+                            cubit.loginWithApple();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                const AppSpacing.small(),
-                const ForgotPasswordButton(),
-                const AppSpacing.xLarge(),
-                const CreateAccountButton(),
-                const AppSpacing.large(),
-                const OtherOptions(),
-                const AppSpacing.large(),
-                LoginSocials(
-                  text: context.s.signin_google,
-                  assetName: AppAssets.googleIcon,
-                  onPressed: () {
-                    cubit.loginWithGoogle();
-                  },
-                ),
-                const AppSpacing.medium(),
-                LoginSocials(
-                  text: context.s.signin_apple,
-                  assetName: AppAssets.appleIcon,
-                  onPressed: () {
-                    cubit.loginWithApple();
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+              ),
     );
   }
 }
