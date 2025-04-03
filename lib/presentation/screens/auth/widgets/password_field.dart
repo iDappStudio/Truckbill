@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class PasswordField extends HookWidget {
-  const PasswordField({super.key, required this.hintText, this.obscureText = true});
+  const PasswordField({super.key, required this.hintText, this.obscureText = true, required this.controller});
 
   final String hintText;
   final bool obscureText;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {

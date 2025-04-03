@@ -13,6 +13,9 @@ class SignUpPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+     final emailController = useTextEditingController();
+    final passwordController = useTextEditingController();
+
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -23,11 +26,11 @@ class SignUpPage extends HookWidget {
               children: [
                 HeaderAuth(mainText: context.s.create_account, secondText: context.s.joins_us),
                 const AppSpacing.xLarge(),
-                TextFormField(decoration: InputDecoration(hintText: context.s.email)),
+                TextFormField(decoration: InputDecoration(hintText: context.s.email), controller: emailController,),
                 const AppSpacing.medium(),
-                PasswordField(hintText: context.s.password),
+                PasswordField(hintText: context.s.password, controller: passwordController,),
                 const AppSpacing.medium(),
-                PasswordField(hintText: context.s.confirm_password),
+                PasswordField(hintText: context.s.confirm_password, controller: passwordController,),
                 const AppSpacing.xLarge(),
                 BasicButton(onPressed: () {}, text: context.s.sign_up),
                 const AppSpacing.xLarge(),
