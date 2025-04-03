@@ -1,13 +1,15 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:truckbill/domain/auth/repository/auth_repository.dart';
 import 'package:truckbill/presentation/bloc/button/login_state.dart';
 
+@injectable
 class LoginCubit extends Cubit<LoginState> {
   final AuthRepository authRepository;
 
-  LoginCubit({required this.authRepository}) : super(const LoginState.initial());
+  LoginCubit(this.authRepository) : super(const LoginState.initial());
 
   Future<void> loginWithGoogle() async {
     emit(const LoginState.loading());

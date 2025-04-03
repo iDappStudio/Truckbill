@@ -30,67 +30,56 @@ class SignInPage extends HookWidget {
       }
     });
 
-    final state = useBlocBuilder<LoginCubit, LoginState>(
-      cubit,
-      buildWhen: (state) => state is LoginLoadingState || state is LoginSuccessState || state is LoginFailureState,
-    );
-
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
 
     return Scaffold(
       appBar: AppBar(),
-      body:
-          state is LoginLoadingState
-              ? const Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
-                  child: SafeArea(
-                    child: Column(
-                      children: [
-                        HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
-                        const AppSpacing.xLarge(),
-                        TextFormField(
-                          decoration: InputDecoration(hintText: context.s.email),
-                          controller: emailController,
-                        ),
-                        const AppSpacing.medium(),
-                        PasswordField(hintText: context.s.password, controller: passwordController),
-                        const AppSpacing.xLarge(),
-                        BasicButton(
-                          onPressed: () {
-                            cubit.loginWithEmail(emailController.text, passwordController.text);
-                          },
-                          text: context.s.sign_in,
-                        ),
-                        const AppSpacing.small(),
-                        const ForgotPasswordButton(),
-                        const AppSpacing.xLarge(),
-                        const CreateAccountButton(),
-                        const AppSpacing.large(),
-                        const OtherOptions(),
-                        const AppSpacing.large(),
-                        LoginSocials(
-                          text: context.s.signin_google,
-                          assetName: AppAssets.googleIcon,
-                          onPressed: () {
-                            cubit.loginWithGoogle();
-                          },
-                        ),
-                        const AppSpacing.medium(),
-                        LoginSocials(
-                          text: context.s.signin_apple,
-                          assetName: AppAssets.appleIcon,
-                          onPressed: () {
-                            cubit.loginWithApple();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppDimens.xl),
+          child: SafeArea(
+            child: Column(
+              children: [
+                HeaderAuth(mainText: context.s.sign_in, secondText: context.s.welcome_back),
+                const AppSpacing.xLarge(),
+                TextFormField(decoration: InputDecoration(hintText: context.s.email), controller: emailController),
+                const AppSpacing.medium(),
+                PasswordField(hintText: context.s.password, controller: passwordController),
+                const AppSpacing.xLarge(),
+                BasicButton(
+                  onPressed: () {
+                    cubit.loginWithEmail(emailController.text, passwordController.text);
+                  },
+                  text: context.s.sign_in,
                 ),
-              ),
+                const AppSpacing.small(),
+                const ForgotPasswordButton(),
+                const AppSpacing.xLarge(),
+                const CreateAccountButton(),
+                const AppSpacing.large(),
+                const OtherOptions(),
+                const AppSpacing.large(),
+                LoginSocials(
+                  text: context.s.signin_google,
+                  assetName: AppAssets.googleIcon,
+                  onPressed: () {
+                    cubit.loginWithGoogle();
+                  },
+                ),
+                const AppSpacing.medium(),
+                LoginSocials(
+                  text: context.s.signin_apple,
+                  assetName: AppAssets.appleIcon,
+                  onPressed: () {
+                    cubit.loginWithApple();
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
