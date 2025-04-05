@@ -45,6 +45,7 @@ flutter_intl:
   use_deferred_loading: false
 
 flutter:
+  uses-material-design: true
   generate: true
   assets:
     - assets/images/
