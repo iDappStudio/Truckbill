@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthException implements Exception {
-  AuthException({required this.message}); 
-  
-  final String message;
+  AuthException({required this.message});
 
+  final String message;
 
   factory AuthException.fromFirebase(FirebaseAuthException e) {
     switch (e.code) {
