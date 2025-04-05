@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
-import 'package:truckbill/presentation/error/auth/auth_exception.dart';
+import 'package:truckbill/domain/auth/error/auth_exception.dart';
 
 @singleton
 class EmailDataSource {

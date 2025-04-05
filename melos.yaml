@@ -1,7 +1,0 @@
-name: truckbill
-packages:
-  - packages/*
-
-scripts:
-  build_runner: |
-    melos exec -- flutter pub run build_runner build --delete-conflicting-outputs
