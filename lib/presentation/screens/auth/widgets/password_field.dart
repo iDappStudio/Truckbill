@@ -11,15 +11,18 @@ class PasswordField extends HookWidget {
   });
 
   final String hintText;
-  final bool obscureText;
+
   final bool hasError;
+  final bool obscureText;
+
   final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     final isObscure = useState(obscureText);
 
-    return TextFormField(
+    return TextField(
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         error: hasError ? SizedBox.shrink() : null,

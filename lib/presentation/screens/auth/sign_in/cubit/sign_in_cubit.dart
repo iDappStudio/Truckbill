@@ -14,37 +14,37 @@ class SignInCubit extends ActionCubit<SignInState, SignInAction> {
   final AuthRepository authRepository;
 
   Future<void> loginWithGoogle() async {
-    emit(const SignInState.loading());
+    dispatch(const SignInAction.showLoading());
 
     try {
       await authRepository.signInWithGoogle();
       dispatch(const SignInAction.success());
     } on AuthException catch (e) {
-      emit(SignInState.initial());
       dispatch(SignInAction.showErrorMessage(e.message));
     } catch (e) {
-      emit(SignInState.initial());
       dispatch(SignInAction.showErrorMessage("Wystąpił błąd podczas logowania"));
+    } finally {
+      dispatch(const SignInAction.hideLoading());
     }
   }
 
   Future<void> loginWithApple() async {
-    emit(const SignInState.loading());
+    dispatch(const SignInAction.showLoading());
 
     try {
       await authRepository.signInWithApple();
       dispatch(const SignInAction.success());
     } on AuthException catch (e) {
-      emit(SignInState.initial());
       dispatch(SignInAction.showErrorMessage(e.message));
     } catch (e) {
-      emit(SignInState.initial());
       dispatch(SignInAction.showErrorMessage("Wystąpił błąd podczas logowania"));
+    } finally {
+      dispatch(const SignInAction.hideLoading());
     }
   }
 
   Future<void> loginWithEmail(String email, String password) async {
-    emit(const SignInState.loading());
+    dispatch(const SignInAction.showLoading());
 
     try {
       await authRepository.signInWithEmail(email, password);
@@ -52,8 +52,9 @@ class SignInCubit extends ActionCubit<SignInState, SignInAction> {
     } on AuthException catch (e) {
       emit(SignInState.initial(errorMessage: e.message));
     } catch (e) {
-      emit(SignInState.initial());
       dispatch(SignInAction.showErrorMessage("Wystąpił błąd podczas logowania"));
+    } finally {
+      dispatch(const SignInAction.hideLoading());
     }
   }
 }

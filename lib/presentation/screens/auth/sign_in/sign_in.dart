@@ -38,6 +38,16 @@ class SignInPage extends HookWidget {
               backgroundColor: colors.primary,
             ),
           );
+        case SignInShowLoading():
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) {
+              return const Center(child: CircularProgressIndicator());
+            },
+          );
+        case SignInHideLoading():
+          Navigator.of(context).pop();
         case SignInShowErrorMessage(:final message):
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -109,7 +119,6 @@ class SignInPage extends HookWidget {
               ),
             ),
           ),
-
           _ => Center(child: CircularProgressIndicator()),
         },
       ),
