@@ -34,7 +34,7 @@ class SignInPage extends HookWidget {
           // context.goNamed(AppRoutes.home);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Login successful!', style: AppTypography.h4.copyWith(color: Colors.white)),
+              content: Text(context.s.login_successful, style: AppTypography.h4.copyWith(color: Colors.white)),
               backgroundColor: colors.primary,
             ),
           );

@@ -31,7 +31,7 @@ class SignUpPage extends HookWidget {
           context.go(AppRoutes.login);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Register successful!', style: AppTypography.h4.copyWith(color: Colors.white)),
+              content: Text(context.s.register_successful, style: AppTypography.h4.copyWith(color: Colors.white)),
               backgroundColor: colors.primary,
             ),
           );

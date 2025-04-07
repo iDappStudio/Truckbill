@@ -16,5 +16,7 @@
   "already_have_account": "Masz już konto?",
   "reset_email": "Zresetuj hasło ",
   "enter_email": "Enter your email address to receive a password reset link.",
-  "send_link": "Wyślij link"
+  "send_link": "Wyślij link",
+  "login_successful": "Zalogowano pomyślnie!",
+  "register_successful": "Zarejestrowano pomyślnie!"
 }
