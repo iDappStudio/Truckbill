@@ -27,8 +27,15 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<UserCredential> signInWithGoogle() async {
     final userCredential = await _googleAuthDataSource.signInWithGoogle();
-    final uid = userCredential.user!.uid;
-    final email = userCredential.user!.email ?? "";
+
+    final user = userCredential.user;
+
+    if (user == null) {
+      throw Exception("Google sign-in failed: user is null.");
+    }
+
+    final uid = user.uid;
+    final email = user.email ?? "";
 
     final exists = await _userDataSource.checkIfUserExist(uid);
     if (!exists) {
@@ -41,8 +48,15 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<UserCredential> signInWithApple() async {
     final userCredential = await _appleAuthDataSource.signInWithApple();
-    final uid = userCredential.user!.uid;
-    final email = userCredential.user!.email ?? "";
+
+    final user = userCredential.user;
+
+    if (user == null) {
+      throw Exception("Apple sign-in failed: user is null.");
+    }
+
+    final uid = user.uid;
+    final email = user.email ?? "";
 
     final exists = await _userDataSource.checkIfUserExist(uid);
     if (!exists) {
@@ -64,7 +78,13 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<UserCredential> signUpWithEmail(String email, String password) async {
     final userCredential = await _emailDataSource.signUpWithEmail(email, password);
-    final uid = userCredential.user!.uid;
+    final user = userCredential.user;
+
+    if (user == null) {
+      throw Exception("Google sign-in failed: user is null.");
+    }
+
+    final uid = user.uid;
 
     final exists = await _userDataSource.checkIfUserExist(uid);
     if (!exists) {
