@@ -18,5 +18,7 @@
   "enter_email": "Enter your email address to receive a password reset link.",
   "send_link": "Wyślij link",
   "login_successful": "Zalogowano pomyślnie!",
-  "register_successful": "Zarejestrowano pomyślnie!"
+  "register_successful": "Zarejestrowano pomyślnie!",
+  "email_send": "Email został wysłany!",
+  "back_to_login": "Wróć do logowania"
 }
