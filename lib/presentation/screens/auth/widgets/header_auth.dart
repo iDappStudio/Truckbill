@@ -16,17 +16,18 @@ class HeaderAuth extends StatelessWidget {
       padding: const EdgeInsets.only(top: AppDimens.s),
       child: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               mainText,
-              style: AppTypography.h1.copyWith(color: context.colors.primary, fontSize: AppDimens.xxl),
-              textAlign: TextAlign.center,
+              style: AppTypography.h1.copyWith(color: context.colors.primary, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start,
             ),
             AppSpacing.small(),
             Text(
               secondText,
               style: AppTypography.h4.copyWith(color: context.colors.surface),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
           ],
         ),

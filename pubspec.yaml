@@ -1,18 +1,9 @@
 name: truckbill
+version: 1.0.0+1
+
 environment:
   sdk: ">=3.7.0 <4.0.0"
-
-dev_dependencies:
-  melos: ^6.3.2
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^5.0.0
-  go_router_builder: ^2.8.1
-  injectable_generator: ^2.7.0
-  build_runner: ^2.4.15
-  freezed: ^3.0.2
-  json_serializable: ^6.9.4
-  flutter_intl: 0.0.1
+  flutter: 3.29.2
 
 dependencies:
   flutter:
@@ -35,13 +26,26 @@ dependencies:
   intl_utils: ^2.8.10
   flutter_localizations:
     sdk: flutter
+  dartz: ^0.10.1
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  go_router_builder: ^2.8.1
+  injectable_generator: ^2.7.0
+  build_runner: ^2.4.15
+  freezed: ^3.0.2
+  json_serializable: ^6.9.4
 
 flutter_intl:
   enabled: true
   main_locale: pl
-  use_deferred_loading: false 
+  use_deferred_loading: false
 
 flutter:
+  uses-material-design: true
   generate: true
   assets:
     - assets/images/
