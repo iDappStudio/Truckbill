@@ -26,7 +26,7 @@ class UserDataSource {
     }
   }
 
-  Future<bool> checkIfUserExist(String uid) async {
+  Future<bool> checkIfUserExists(String uid) async {
     final doc = await _firestore.collection('users').doc(uid).get();
     return doc.exists;
   }

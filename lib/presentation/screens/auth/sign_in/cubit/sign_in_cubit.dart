@@ -44,6 +44,11 @@ class SignInCubit extends ActionCubit<SignInState, SignInAction> {
   }
 
   Future<void> loginWithEmail(String email, String password) async {
+    if (email.isEmpty || password.isEmpty) {
+      emit(SignInInitial(errorMessage: 'Please fill in all fields.'));
+      return;
+    }
+
     dispatch(const SignInAction.showLoading());
 
     try {

@@ -37,7 +37,7 @@ class AuthRepositoryImpl implements AuthRepository {
     final uid = user.uid;
     final email = user.email ?? "";
 
-    final exists = await _userDataSource.checkIfUserExist(uid);
+    final exists = await _userDataSource.checkIfUserExists(uid);
     if (!exists) {
       await _userDataSource.createUser(uid, email);
     }
@@ -58,7 +58,7 @@ class AuthRepositoryImpl implements AuthRepository {
     final uid = user.uid;
     final email = user.email ?? "";
 
-    final exists = await _userDataSource.checkIfUserExist(uid);
+    final exists = await _userDataSource.checkIfUserExists(uid);
     if (!exists) {
       await _userDataSource.createUser(uid, email);
     }
@@ -81,12 +81,12 @@ class AuthRepositoryImpl implements AuthRepository {
     final user = userCredential.user;
 
     if (user == null) {
-      throw Exception("Google sign-in failed: user is null.");
+      throw Exception("Email sign-in failed: user is null.");
     }
 
     final uid = user.uid;
 
-    final exists = await _userDataSource.checkIfUserExist(uid);
+    final exists = await _userDataSource.checkIfUserExists(uid);
     if (!exists) {
       await _userDataSource.createUser(uid, email);
     }

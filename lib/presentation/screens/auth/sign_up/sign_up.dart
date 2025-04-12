@@ -66,13 +66,12 @@ class SignUpPage extends HookWidget {
             padding: EdgeInsets.symmetric(horizontal: AppDimens.xl),
             child: SafeArea(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Spacer(),
                   Icon(Icons.fire_truck_rounded),
                   Spacer(),
                   HeaderAuth(mainText: context.s.create_account, secondText: context.s.joins_us),
-
                   const AppSpacing.xLarge(),
                   TextFormField(
                     decoration: InputDecoration(
@@ -98,7 +97,11 @@ class SignUpPage extends HookWidget {
                   const AppSpacing.medium(),
                   BasicButton(
                     onPressed: () {
-                      cubit.signUpWithEmail(emailController.text, passwordController.text, confirmPasswordController.text);
+                      cubit.signUpWithEmail(
+                        emailController.text,
+                        passwordController.text,
+                        confirmPasswordController.text,
+                      );
                     },
                     text: context.s.sign_up,
                   ),

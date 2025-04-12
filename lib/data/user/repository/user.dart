@@ -20,8 +20,8 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<bool> checkIfUserExist(String uid) async {
-    return _userDataSource.checkIfUserExist(uid);
+  Future<bool> checkIfUserExists(String uid) async {
+    return _userDataSource.checkIfUserExists(uid);
   }
 
    @override
