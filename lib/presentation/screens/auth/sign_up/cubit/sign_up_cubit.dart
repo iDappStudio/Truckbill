@@ -17,6 +17,11 @@ class SignUpCubit extends ActionCubit<SignUpState, SignUpAction> {
       return;
     }
 
+    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      emit(SignUpInitial(errorMessage: 'Please fill in all fields.'));
+      return;
+    }
+
     dispatch(const SignUpAction.showLoading());
     try {
       await authRepository.signUpWithEmail(email, password);

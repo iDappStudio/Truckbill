@@ -12,6 +12,11 @@ class ResetPasswordCubit extends ActionCubit<ResetPasswordState, ResetPasswordAc
   final AuthRepository authRepository;
 
   Future<void> resetPassword(String email) async {
+    if (email.isEmpty) {
+      emit(ResetPasswordInitial(errorMessage: 'Please enter email.'));
+      return;
+    }
+
     dispatch(ResetPasswordAction.showLoading());
     try {
       await authRepository.resetPassword(email);
