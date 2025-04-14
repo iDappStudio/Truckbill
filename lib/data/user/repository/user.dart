@@ -28,4 +28,9 @@ class UserRepositoryImpl implements UserRepository {
   Future<void> createUser(String uid, String email) async {
     await _userDataSource.createUser(uid, email);
   }
+  
+  @override
+  Future<bool> isLoggedIn() {
+    return _userDataSource.isLoggedIn();
+  }
 }
