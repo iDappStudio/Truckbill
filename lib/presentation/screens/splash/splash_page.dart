@@ -16,7 +16,7 @@ class SplashPage extends HookWidget {
     final state = useBlocBuilder(cubit);
 
     useEffect(() {
-      cubit.isLoggedIn();
+      cubit.checkIfLoggedIn();
       return null;
     }, []);
 

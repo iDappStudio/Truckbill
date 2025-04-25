@@ -6,23 +6,16 @@ import 'package:truckbill/presentation/screens/splash/cubit/splash_state.dart';
 
 @injectable
 class SplashCubit extends ActionCubit<SplashState, SplashAction> {
-  SplashCubit(this.userRepository) : super(SplashState.initial());
+  SplashCubit(this.userRepository) : super(const SplashState.initial());
 
   final UserRepository userRepository;
 
-  Future<bool> isLoggedIn() async {
-    try {
-      await Future.delayed(const Duration(seconds: 2));
-      bool isAuthenticated = await userRepository.isLoggedIn();
-      if (isAuthenticated) {
-        dispatch(const SplashAction.authenticated());
-      } else {
-        dispatch(const SplashAction.unAuthenticated());
-      }
-      return isAuthenticated;
-    } catch (e) {
+  void checkIfLoggedIn() {
+    final isAuthenticated = userRepository.isLoggedIn;
+    if (isAuthenticated) {
+      dispatch(const SplashAction.authenticated());
+    } else {
       dispatch(const SplashAction.unAuthenticated());
-      return false;
     }
   }
 }

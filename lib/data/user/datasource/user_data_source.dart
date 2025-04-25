@@ -35,11 +35,5 @@ class UserDataSource {
     await _firestore.collection('users').doc(uid).set({'email': email});
   }
 
-  Future<bool> isLoggedIn() async {
-    if (_auth.currentUser != null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool get isLoggedIn => _auth.currentUser != null;
 }

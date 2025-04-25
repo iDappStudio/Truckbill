@@ -30,7 +30,5 @@ class UserRepositoryImpl implements UserRepository {
   }
   
   @override
-  Future<bool> isLoggedIn() {
-    return _userDataSource.isLoggedIn();
-  }
+  bool get isLoggedIn => _userDataSource.isLoggedIn;
 }
