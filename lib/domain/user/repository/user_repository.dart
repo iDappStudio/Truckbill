@@ -5,4 +5,5 @@ abstract class UserRepository {
   Future<void> updateUser({String? displayName, String? photoURL});
   Future<bool> checkIfUserExists(String uid);
   Future<void> createUser(String uid, String email);
+  bool get isLoggedIn;
 }

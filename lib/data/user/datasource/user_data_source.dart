@@ -35,4 +35,5 @@ class UserDataSource {
     await _firestore.collection('users').doc(uid).set({'email': email});
   }
 
+  bool get isLoggedIn => _auth.currentUser != null;
 }
