@@ -5,7 +5,6 @@ import 'package:hooked_bloc/hooked_bloc.dart';
 import 'package:truckbill/presentation/router/routes/app_routes.dart';
 import 'package:truckbill/presentation/screens/splash/cubit/splash_action.dart';
 import 'package:truckbill/presentation/screens/splash/cubit/splash_cubit.dart';
-import 'package:truckbill/presentation/screens/splash/cubit/splash_state.dart';
 
 class SplashPage extends HookWidget {
   const SplashPage({super.key});
@@ -13,7 +12,6 @@ class SplashPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = useBloc<SplashCubit>();
-    final state = useBlocBuilder(cubit);
 
     useEffect(() {
       cubit.checkIfLoggedIn();
@@ -23,17 +21,19 @@ class SplashPage extends HookWidget {
     useActionListener<SplashAction>(cubit, (action) {
       switch (action) {
         case SplashAuthenticated():
-          //context.go(AppRoutes.home);
+        //context.go(AppRoutes.home);
         case SplashUnAuthenticated():
           context.go(AppRoutes.login);
       }
     });
 
     return Scaffold(
-      body: switch (state) {
-        SplashInitial() => Center(child: Icon(Icons.fire_truck)),
-        _ => const CircularProgressIndicator(),
-      },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [Icon(Icons.fire_truck, size: 100), SizedBox(height: 20), CircularProgressIndicator()],
+        ),
+      ),
     );
   }
 }

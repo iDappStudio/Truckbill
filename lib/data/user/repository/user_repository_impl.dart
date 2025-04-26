@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:truckbill/data/user/datasource/user_data_source.dart';
-import 'package:truckbill/domain/user/repository/user.dart';
+import 'package:truckbill/domain/user/repository/user_repository.dart';
 
 @Singleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
